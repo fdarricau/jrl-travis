@@ -33,7 +33,7 @@ elif [[ ${TRAVIS_OS_NAME} = linux ]]; then
     HEAD=`git rev-parse HEAD`
 
     # Upload coveralls data.
-    if [ x${CC} = xgcc ]; then
+    if [[ "x${CC}" = xgcc* ]]; then
 	cd $build_dir
 	# If tests failed, coveralls data may not have been written
 	lcov --directory $build_dir --base-directory $root_dir --capture --output-file coverage.info || true
