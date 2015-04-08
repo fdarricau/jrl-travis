@@ -36,7 +36,7 @@ elif [[ ${TRAVIS_OS_NAME} = linux ]]; then
     if [[ "x${CC}" = xgcc* ]]; then
 	cd $build_dir
 	# If tests failed, coveralls data may not have been written
-	lcov --gcov-tool $GCOV_TOOL --directory $build_dir --base-directory $root_dir --capture --output-file coverage.info || true
+	lcov --initial --gcov-tool ${GCOV_TOOL:-gcov} --directory $build_dir --base-directory $root_dir --capture --output-file coverage.info || true
 	lcov --remove coverage.info '/usr*' "$install_dir*" -o coverage.info || true
 	if `! test x${LCOV_IGNORE_RULES} = x`; then
             # Note: ignore rules are given by a string such as "*test* *foo*"
