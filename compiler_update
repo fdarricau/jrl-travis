@@ -1,0 +1,3 @@
+#!/bin/bash
+export CC=${CC}-${GCC_NEEDED_VERSION};
+export CXX=${CXX}-${GCC_NEEDED_VERSION};
