@@ -153,8 +153,18 @@ else
 	# ...otherwise we install the dependencies explicitly.
 	sudo apt-get install -qq curl cppcheck ${APT_DEPENDENCIES}
 
+	# Do we need to manually install the latest lcov
+  if [[ ${LCOV_UPDATE} == "yes" ]]; then
+    git clone https://github.com/linux-test-project/lcov.git;
+    cd lcov;
+    sudo make install;
+    cd -;
+  else
+
 	# Install lcov and related dependencies
 	sudo apt-get install -qq lcov
+
+fi;
 
 	# lcov will only be used on linux
 	gem install coveralls-lcov
