@@ -148,13 +148,13 @@ else
       if [[ ${GCC_NEEDED_VERSION} != "" && ${GCC_PPA} != "" && ${CC} == "gcc" ]]; then
         sudo add-apt-repository -y ppa:${GCC_PPA};
         sudo apt-get update -qq;
-        sudo apt-get install -qq ${CC}-${GCC_NEEDED_VERSION} ${CXX}-${GCC_NEEDED_VERSION};
+        sudo apt-get install -qq ${CC}-${GCC_NEEDED_VERSION};
         export CC=${CC}-${GCC_NEEDED_VERSION};
         export CXX=${CXX}-${GCC_NEEDED_VERSION};
       elif [[ ${CLANG_NEEDED_VERSION} != "" && ${CLANG_PPA} != "" ]]; then
         sudo add-apt-repository -y ppa:${CLANG_PPA};
         sudo apt-get update -qq;
-        sudo apt-get install -qq ${CC}-${CLANG_NEEDED_VERSION};
+        sudo apt-get install -qq ${CLANG}-${CLANG_NEEDED_VERSION};
       fi;
 
 	# Add additional PPAs
